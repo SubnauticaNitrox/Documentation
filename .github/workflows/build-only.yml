@@ -4,8 +4,8 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push events but only for the "main" branch
-  push:
+  # Triggers the workflow on pull request events but only for the "main" branch
+  pull_request:
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -17,8 +17,8 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Allow only one concurrent build, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production builds to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -42,14 +42,3 @@ jobs:
           run: npm ci
         - name: Build
           run: npm run build --if-present
-        # 👆 Build steps
-        - name: Setup Pages
-          uses: actions/configure-pages@v3
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v2
-          with:
-          # 👇 Specify build output path
-            path: build
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v2
