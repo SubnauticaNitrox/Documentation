@@ -24,7 +24,7 @@ A new document is now available at [http://localhost:3000/docs/hello](http://loc
 
 ## Configure the Sidebar
 
-Docusaurus automatically **creates a sidebar** from the `docs` folder.
+Docusaurus (the builder we use for the Nitrox documentation) automatically **creates a sidebar** from the `docs` folder.
 
 Add metadata to customize the sidebar label and position:
 
@@ -50,7 +50,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      items: ['docs/create-a-document'],
     },
   ],
 };
