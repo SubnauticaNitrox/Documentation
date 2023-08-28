@@ -34,3 +34,7 @@
 }
 
 [data-theme='dark'] .navbar__logo img {filter:invert(1);}
+
+[data-theme='dark'] .hero__title, [data-theme='dark'] .hero__subtitle {
+  color:var(--ifm-color-gray-0);
+}
