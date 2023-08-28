@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'SubnauticaNitrox Documentation',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Nitrox Documentation',
+  tagline: 'Your multiplayer Mod for Subnautica.',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://subnauticanitrox.github.io',
@@ -43,14 +43,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/SubnauticaNitrox/Documentation/blob/main',
         },
         // blog: {
         //   showReadingTime: true,
         //   // Please change this to your repo.
         //   // Remove this to remove the "edit this page" links.
         //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        //     'https://github.com/SubnauticaNitrox/Documentation/blob/main',
         // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -65,9 +65,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: '',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Nitrox',
           src: 'img/logo.svg',
         },
         items: [
@@ -75,11 +75,11 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/SubnauticaNitrox/Nitrox',
             label: 'GitHub',
             position: 'right',
           },
@@ -98,37 +98,54 @@ const config = {
             ],
           },
           {
+            title: 'Mod',
+            items: [
+              {
+                label: 'Download Nitrox',
+                href: 'https://nitrox.rux.gg/download'
+              },
+              {
+                label: 'Changelog',
+                href: 'https://nitrox.rux.gg/pages/changelog'
+              },
+              {
+                label: 'Contribute',
+                href: 'https://nitrox.rux.gg/features/open-source' // TODO: Change to a documentation page at a later stage
+              }
+            ]
+          },
+          {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.gg/E8B4X9s',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/modnitrox',
               },
+              {
+                label: 'Reddit',
+                href: 'https://www.reddit.com/r/SubnauticaNitrox/'
+              }
             ],
           },
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
+              // {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/SubnauticaNitrox/Nitrox',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Nitrox Documentation. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
