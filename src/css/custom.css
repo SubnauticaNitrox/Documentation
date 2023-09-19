@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+ @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,800&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 /* You can override the default Infima variables here. */
 :root {
   /* --ifm-color-primary: #2e8555;
@@ -29,11 +31,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 } */
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
 }
 
-.logo__font {
+h1, .logo__font {
   font-family: 'Barlow', sans-serif;
   text-transform: uppercase;
 }

@@ -31,14 +31,6 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,800&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
