@@ -62,8 +62,9 @@ get_local_active_branch() {
   git branch --show
 }
 
+# Sourced from: https://stackoverflow.com/a/44750379
 get_local_default_branch() {
-  git config --get init.defaultBranch
+  git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
 }
 
 # Sourced from: https://stackoverflow.com/a/61357104/1277156
