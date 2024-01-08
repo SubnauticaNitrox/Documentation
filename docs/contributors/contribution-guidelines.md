@@ -3,22 +3,8 @@ sidebar_position: 2
 sidebar_label: Guidelines
 ---
 
-## Code
-We do not have a formatting guideline *yet*, and expect you to write code with common sense in mind. Consistency is key, so look at the surrounding code and adhere to the same standards. Always check the diff before you commit (and more importantly: before filing a PR); many irrelevant changes usually mean your autoformat settings are off. Luckily, our project now includes a `.editorconfig` that automatically sets all the built-in formatting/language-rules. This is however only supported in Visual Studio 2017.
-A large list of discussion items has been compiled [here](https://github.com/SubnauticaNitrox/Nitrox/issues/36), which hopefully make it into a guideline soon™.
-
-### Formatting
-- Use UpperCamelCase for methods, classes, properties and public fields.
-- Use lowerCamelCase for local variables, private fields and function parameters.
-- Remove unused `using` statements (Visual Studio has a shortcut to do this, as well as sort them).
-- Put opening braces (`{`) on their own line.
-- Encapsulate everything in braces, even single-line statements.
-- Use `Optional<T>` for explicit nullable types.
-- Use strict access modifiers where possible, and mark immutable variables wherever appropriate (`const`, `readonly` or `static readonly`, depending on the usecase).
-- Remove `private set;` from properties if these are only assigned in the constructor.
-- Assign simple data types (that do not require arguments) at declaration rather than in the constructor (such as `private readonly List<int> someList = new List<int>();`, instead of putting the `new` part in the constructor).
-
-Again, consistency is key! If you're unsure, look at the rest of the code!
+### Code Formatting
+Configure your IDE to use the provided `.editorconfig` file. Due to new C# language features, code style can change over time. Remember, consistency is key! If you're unsure, look at the rest of the code.
 
 ### Safe guidelines
 When retrieving data from the game, use `Validate.NotNull` or similar where possible. Subnautica is still heavily under development, and things *will* change. Defensive coding standards help identify and fix these changes more easily.
