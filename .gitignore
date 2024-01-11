@@ -29,3 +29,6 @@ yarn-error.log*
 
 # local folder
 local
+
+# JetBrains Rider
+.idea
