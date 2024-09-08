@@ -18,12 +18,9 @@ Make sure Subnautica is **not on legacy**. The master branch of Nitrox always ta
 
 1. Load `Nitrox.sln` inside MS Visual Studio or JetBrains Rider
 2. Run `dotnet restore`
-3. Build and run the Nitrox.BuildTool project first. **We do not support pirated copies of Subnautica**  
-   (This project finds your Subnautica installation and generates publicized DLLs from the game, you don't have to know what this means to be a Nitrox dev).
-4. Restart the IDE
-5. Build the entire solution. If build fails due to dependency issues then rebuild after trying the following:
+3. Build the entire solution. If build fails due to dependency issues then rebuild after trying the following:
    1. Clear your IDE's index cache AND restart the IDE.
-6. Use the built NitroxLauncher.exe to start the server and Subnautica.
+4. Use the built NitroxLauncher.exe to start the server and Subnautica.
 
 ### Nitrox setup (CLI)
 
