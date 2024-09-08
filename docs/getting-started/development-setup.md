@@ -27,7 +27,6 @@ Make sure Subnautica is **not on legacy**. The master branch of Nitrox always ta
 Make sure you have an up-to-date Microsoft .NET SDK: https://dotnet.microsoft.com/en-us/download
 
 ```
-dotnet run --project Nitrox.BuildTool
 dotnet build
 ```
 

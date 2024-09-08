@@ -15,10 +15,6 @@ Server application that is started by the NitroxLauncher project. It has seriali
 
 WPF application for starting the server and/or Subnautica. The launcher will inject the Nitrox client code before starting Subnautica.
 
-### Nitrox.BuildTool
-
-Console application which finds Subnautica code and publicizes it for other Nitrox\* projects. It's required to Build and Run this at least once before other Nitrox projects.
-
 ---
 
 ## Nitrox library projects
