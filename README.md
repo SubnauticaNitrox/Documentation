@@ -1,7 +1,7 @@
 # Documentation website
 
 This is the documentation for an open-source, multiplayer modification for the game Subnautica.
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 [You can view the docs here](https://subnauticanitrox.github.io/Documentation/).
 
