@@ -43,3 +43,7 @@ To prevent issues, and ensure that your code is compatible with the most recent 
 merge master into your branch, or rebase your branch on top of master. Even if git(hub) says your code can be merged without conflicts, there might be structural changes (renamings, moved files, refactors, etc), causing the final result to fail compilation, or break at runtime.
 
 It is not desired to remove code just because "it doesn't work", or "causes exceptions in the log". If that's the case, try to fix it (recommended to file the changes in a separate PR), or notify the other Nitrox devs (by creating an issue on github, for example). All code is there for a reason - and someone else spent time creating it.
+
+### Tagging co-authors
+
+If another helped you out to complete a work, it's good sportsmanship to tag them as co-author. [Find yours here](https://github.com/settings/emails) to share them with others. A list of co-author tags can be found [here.](/docs/contributors/coauthor-tags.md)

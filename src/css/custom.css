@@ -53,6 +53,10 @@ h1, .logo__font {
     color: var(--ifm-color-gray-0);
 }
 
+.hidden {
+    display: none !important;
+}
+
 .do {
     color: lawngreen;
 }
