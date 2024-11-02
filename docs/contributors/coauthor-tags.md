@@ -24,6 +24,10 @@ Meas
 ```
 Co-authored-by: Measurity <1107063+Measurity@users.noreply.github.com>
 ```
+Ohm
+```
+Co-authored-by: OhmV-IR <bourdeaux.adrien@gmail.com>
+```
 Werewolfs
 ```
 Co-authored-by: WerewolfsX <160942469+WerewolfsX@users.noreply.github.com>
