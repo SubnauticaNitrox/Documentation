@@ -26,7 +26,7 @@ Co-authored-by: Measurity <1107063+Measurity@users.noreply.github.com>
 ```
 killzoms
 ```
-Co-authored-by: killzoms 13115936+killzoms@users.noreply.github.com 
+Co-authored-by: killzoms <13115936+killzoms@users.noreply.github.com> 
 ```
 Ohm
 ```
