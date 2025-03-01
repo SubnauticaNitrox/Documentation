@@ -33,7 +33,7 @@ dotnet build
 For release builds, run this command:
 
 ```
-dotnet build -c Release
+dotnet build -c Release Nitrox.Launcher
 ```
 
 ### Verify setup
