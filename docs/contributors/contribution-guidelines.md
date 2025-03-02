@@ -10,12 +10,12 @@ Configure your IDE to use the provided `.editorconfig` file. Due to new C# langu
 If code (especially patches that touch game internals) is/are not immediately clear, add a comment explaining the situation. This goes a long way, as you're basically presenting an overview of the research you did in the game code. And it helps others to figure out what's supposed to happen, in case the game changes and the patch is not functioning properly anymore.
 
 ### Basic Code Design principles
-- **<span class="do">DO</span> defensive programming :shield:** <br/>When retrieving data from the game, use `Validate.NotNull`, `Try*` APIs or similar where possible. Log if something unexpected happens. Defensive coding standards help to identify the source of issues before they cause hard to debug problems. This is doubly important for mod projects, as they change the original intent of a code without changing its design. 
-- **<span class="do">DO</span> easy to remove code :wastebasket:** <br/>Removing a type should be trivial. If it causes bugs or significant compile failures, consider refactoring. Try to limit the amount of features a type has and wrap _often accessed code_ into interfaces to reduce coupling to the implementation. 
-- **<span class="do">DO</span> Inversion of Control (IoC) 🔄** <br/>Supply _stateful_ APIs as constructor parameters instead of direct access in methods. Following this practice maintains a chronological order to the written code, i.e. less sphaget :wink:, reducing cognitive load.
-- **<span class="do">DO</span> small interfaces 🔌** <br/>When designing them, think "I need to do X" and generalize for that use, as opposed to "I need to fulfill all needs of X". Split multiple needs into separate interfaces, within reason.
-- **<span class="avoid">AVOID</span> deep type inheritance :seedling:** <br/>If you find yourself needing more than 2 parent types, inheritance is likely the wrong tool to use. Consider compositional- or functional programming.
-- **<span class="avoid">AVOID</span> exact duplicates of code 🗒️** <br />If a piece of code is duplicated in 3 or more places, consider refactoring.
+- **<span class="do">DO</span> defensive programming :shield:** <br/>When retrieving data from the game, use `Validate.NotNull`, `Try*` APIs or similar where possible. Log if something unexpected happens. Defensive coding standards help to identify the source of issues before they cause hard to debug problems. Following this principle is doubly important for mod projects, as they change the intent of a codebase without (being able to change) its design.
+- **<span class="do">DO</span> easy to remove code :wastebasket:** <br/>Removing a type should be trivial. If doing so would lead to bugs or significant compile failures, consider refactoring. Reduce the amount of dependant code by either splitting a type into fewer features or use interfaces to abstract a complex type into smaller features.
+- **<span class="do">DO</span> Inversion of Control (IoC) 🔄** <br/>Supply _stateful_ APIs as constructor parameters. It's easier to change a constructor parameter than it is changing functions to use different APIs. Following this practice also maintains a chronological order to the written code, i.e. less sphaget :wink:.
+- **<span class="do">DO</span> small interfaces 🔌** <br/>Try to make interfaces as small as possible, within reason. If 2+ interfaces are _always_ implemented together, then consider merging them. It's better to implement multiple interfaces than one big interface. This shows the intent of a type and also enables swapping the implementation without changing dependants.
+- **<span class="avoid">AVOID</span> deep type inheritance :seedling:** <br/>If you find yourself writing 2 or more parent classes within a project, inheritance is likely the wrong tool to use. Consider compositional-, functional- or procedural programming.
+- **<span class="avoid">AVOID</span> exact duplicates of code 🗒️** <br />If a piece of code is duplicated in 3 or more places, consider refactoring. But make sure that parts of a codebase with different goals aren't forced to change together.
 
 ## Git workflow
 ### Git help
@@ -40,7 +40,7 @@ git config branch.master.pushRemote origin
 ### Filing a PR
 When filing a PR, we obviously expect the code to compile, run with no errors, and merge without conflicts.
 To prevent issues, and ensure that your code is compatible with the most recent 'version',
-merge master into your branch, or rebase your branch on top of master. Even if git(hub) says your code can be merged without conflicts, there might be structural changes (renamings, moved files, refactors, etc), causing the final result to fail compilation, or break at runtime.
+merge master into your branch, or rebase your branch on top of master. Even if git(hub) says your code can be merged without conflicts, there might be structural changes (renamings, moved files, refactors, etc.), causing the final result to fail compilation, or break at runtime.
 
 It is not desired to remove code just because "it doesn't work", or "causes exceptions in the log". If that's the case, try to fix it (recommended to file the changes in a separate PR), or notify the other Nitrox devs (by creating an issue on github, for example). All code is there for a reason - and someone else spent time creating it.
 
