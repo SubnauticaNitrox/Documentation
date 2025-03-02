@@ -7,11 +7,11 @@ title: Platform Architecture
 
 ## Application projects
 
-### NitroxServer-Subnautica
+### {vars.projects.server.name}
 
-Server application that is started by the NitroxLauncher project. It has serialization logic for Subnautica game entities which makes it easier to communicate with Nitrox clients. A future plan is to abstract away serialization to custom Nitrox objects instead of Subnautica game objects.
+Server application that is started by the {vars.projects.launcher.name} project. It has serialization logic for Subnautica game entities which makes it easier to communicate with Nitrox clients. A future plan is to abstract away serialization to custom Nitrox objects instead of Subnautica game objects.
 
-### NitroxLauncher
+### {vars.projects.launcher.name}
 
 WPF application for starting the server and/or Subnautica. The launcher will inject the Nitrox client code before starting Subnautica.
 
@@ -35,7 +35,7 @@ Library that is injected into Subnautica. Handles modifying internal data struct
 
 Server code library that knows about the packets sent between client and server. It should not reference any code of Subnautica directly.
 
-### NitroxClient
+### {vars.projects.client.name}
 
 Injected as a reference to Subnautica via the NitroxPatcher project. Contains monobehaviours, tcp client, and packet handlers.
 

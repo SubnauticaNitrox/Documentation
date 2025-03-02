@@ -36,6 +36,9 @@ const config = {
 
   markdown: {
     mermaid: true,
+    preprocessor: ({ filePath, fileContent }) => {
+      return fileContent.replace(/(^-{3}[^-]*-{3}\n)/g,"$1\nimport vars from '@site/static/vars';\n")
+    },
   },
   themes: ['@docusaurus/theme-mermaid'],
   

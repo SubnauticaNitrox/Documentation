@@ -20,7 +20,7 @@ Make sure Subnautica is **not on legacy**. The master branch of Nitrox always ta
 2. Run `dotnet restore`
 3. Build the entire solution. If build fails due to dependency issues then rebuild after trying the following:
    1. Clear your IDE's index cache AND restart the IDE.
-4. Use the built NitroxLauncher.exe to start the server and Subnautica.
+4. Use the built {vars.projects.launcher.name}.exe to start the server and Subnautica.
 
 ### Nitrox setup (CLI)
 
@@ -41,6 +41,6 @@ dotnet build -c Release Nitrox.Launcher
 1. Run NitroxServer (if not already started) and verify that server window shows no (critical) errors.
 2. Start Subnautica (if not already started).
 3. If you see a `Multiplayer` button then Nitrox has been bootstrapped successfully.
-4. Verify Subnautica logs from the `Nitrox Logs` folder in the launcher directory or `%UserProfile%\AppData\LocalLow\Unknown Worlds\Subnautica\Player.log` (Search for `nitrox`, verify no code exceptions)
+4. Verify Subnautica logs from the `Nitrox Logs` folder in <code>{vars.paths.nitrox.logs}</code> directory or <code>{vars.paths.subnautica.player_log}</code> (Search for `nitrox`, verify no code exceptions)
    - **NOTE:** There will probably be some errors, but nothing substantial in the first part regarding loading of Nitrox.
 5. On the main menu of Subnautica, join a new game by connecting through the multiplayer button in the UI. If you want to connect to your own server, use the "My server" option which uses 127.0.0.1/localhost IP.
