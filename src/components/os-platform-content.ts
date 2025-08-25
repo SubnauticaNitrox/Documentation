@@ -10,6 +10,11 @@ export class OsPlatformContent extends Component {
   }
 
   getVisitorOperatingSystem(): string {
+    // Change vars depending on client, should run client-side only.
+    if (!ExecutionEnvironment.canUseDOM) {
+      return 'unknown';
+    }
+
     if (window.user != null && window.user.os != null) {
       return window.user.os;
     }
@@ -22,11 +27,6 @@ export class OsPlatformContent extends Component {
     return window.user.os;
 
     function getRawIdentifier(): string {
-      // Change vars depending on client, should run client-side only.
-      if (!ExecutionEnvironment.canUseDOM) {
-        return 'unknown';
-      }
-
       // 2022 way of detecting. Note : this userAgentData feature is available only in secure contexts (HTTPS)
       if (typeof navigator.userAgentData !== 'undefined' && navigator.userAgentData != null) {
         return navigator.userAgentData.platform.toLowerCase();
