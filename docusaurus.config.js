@@ -1,176 +1,178 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const {themes} = require('prism-react-renderer');
+const { themes } = require("prism-react-renderer");
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
-  title: "Nitrox Documentation",
-  tagline: "Your multiplayer Mod for Subnautica.",
-  favicon: "img/favicon.png",
+export default async function createConfigAsync() {
+  const remarkGlobalVariables = await import("./src/remark/global-variables");
+  const globalVariables = await import("./static/global-variables");
 
-  // Set the production url of your site here
-  url: "https://subnauticanitrox.github.io",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/Documentation",
+  /** @type {import("@docusaurus/types").Config} */
+  return {
+    title: "Nitrox Documentation",
+    tagline: "Your multiplayer Mod for Subnautica.",
+    favicon: "img/favicon.png",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "SubnauticaNitrox", // Usually your GitHub org/user name.
-  projectName: "Documentation", // Usually your repo name.
-  trailingSlash: false,
+    // Set the production url of your site here
+    url: "https://subnauticanitrox.github.io",
+    // Set the /<baseUrl>/ pathname under which your site is served
+    // For GitHub pages deployment, it is often '/<projectName>/'
+    baseUrl: "/Documentation",
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+    // GitHub pages deployment config.
+    // If you aren't using GitHub pages, you don't need these.
+    organizationName: "SubnauticaNitrox", // Usually your GitHub org/user name.
+    projectName: "Documentation", // Usually your repo name.
+    trailingSlash: false,
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
-  },
+    onBrokenLinks: "throw",
+    onBrokenMarkdownLinks: "warn",
 
-  markdown: {
-    mermaid: true,
-    preprocessor: ({ filePath, fileContent }) => {
-      return fileContent.replace(/(^-{3}[^-]*-{3}\n)/g,"$1\nimport vars from '@site/static/vars';\n")
+    // Even if you don't use internalization, you can use this field to set useful
+    // metadata like html lang. For example, if your site is Chinese, you may want
+    // to replace "en" with "zh-Hans".
+    i18n: {
+      defaultLocale: "en",
+      locales: ["en"]
     },
-  },
-  themes: ['@docusaurus/theme-mermaid'],
-  
-  presets: [
-    [
-      "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/SubnauticaNitrox/Documentation/blob/main",
-        },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://github.com/SubnauticaNitrox/Documentation/blob/main',
-        // },
-        theme: {
-          customCss: require.resolve("./src/css/custom.css"),
-        },
-      }),
+
+    markdown: {
+      mermaid: true
+    },
+    themes: ["@docusaurus/theme-mermaid"],
+
+    presets: [
+      [
+        "classic",
+        /** @type {import("@docusaurus/preset-classic").Options} */
+        ({
+          docs: {
+            sidebarPath: require.resolve("./sidebars.js"),
+            // Please change this to your repo.
+            // Remove this to remove the "edit this page" links.
+            editUrl: "https://github.com/SubnauticaNitrox/Documentation/blob/main",
+            beforeDefaultRemarkPlugins: [
+              [remarkGlobalVariables, { element: "OsPlatformContent", vars: globalVariables }]
+            ]
+          },
+          // blog: {
+          //   showReadingTime: true,
+          //   // Please change this to your repo.
+          //   // Remove this to remove the "edit this page" links.
+          //   editUrl:
+          //     'https://github.com/SubnauticaNitrox/Documentation/blob/main',
+          // },
+          theme: {
+            customCss: require.resolve("./src/css/custom.css")
+          }
+        })
+      ]
     ],
-  ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      // Replace with your project's social card
-      // image: 'img/docusaurus-social-card.jpg',
-      navbar: {
-        title: "",
-        logo: {
-          alt: "Nitrox",
-          src: "img/logo.svg",
+    themeConfig:
+    /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
+      ({
+        // Replace with your project's social card
+        // image: 'img/docusaurus-social-card.jpg',
+        navbar: {
+          title: "",
+          logo: {
+            alt: "Nitrox",
+            src: "img/logo.svg"
+          },
+          items: [
+            {
+              type: "docSidebar",
+              sidebarId: "tutorialSidebar",
+              position: "left",
+              label: "Docs"
+            },
+            // {to: '/blog', label: 'Blog', position: 'left'},
+            {
+              href: "https://github.com/SubnauticaNitrox/Nitrox",
+              label: "GitHub",
+              position: "right"
+            }
+          ]
         },
-        items: [
-          {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "Docs",
-          },
-          // {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: "https://github.com/SubnauticaNitrox/Nitrox",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
-      },
-      footer: {
-        style: "dark",
-        links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
-          {
-            title: "Mod",
-            items: [
-              {
-                label: "Download Nitrox",
-                href: "https://nitrox.rux.gg/download",
-              },
-              {
-                label: "Changelog",
-                href: "https://nitrox.rux.gg/pages/changelog",
-              },
-              {
-                label: "Contribute",
-                href: "https://nitrox.rux.gg/features/open-source", // TODO: Change to a documentation page at a later stage
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Discord",
-                href: "https://discord.gg/E8B4X9s",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/modnitrox",
-              },
-              {
-                label: "Reddit",
-                href: "https://www.reddit.com/r/SubnauticaNitrox/",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
-              {
-                label: "GitHub",
-                href: "https://github.com/SubnauticaNitrox/Nitrox",
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Nitrox Documentation. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ['csharp']
-      },
-      algolia: {
-        // The application ID provided by Algolia
-        appId: "B6GIP4OC3R",
-        // Public API key: it is safe to commit it
-        apiKey: "2729684d91648b8b94629efedde0c070",
-        indexName: "subnauticanitrox",
-        insights: true,
-        debug: true,
-      },
-    }),
-};
-
-module.exports = config;
+        footer: {
+          style: "dark",
+          links: [
+            {
+              title: "Docs",
+              items: [
+                {
+                  label: "Tutorial",
+                  to: "/docs/intro"
+                }
+              ]
+            },
+            {
+              title: "Mod",
+              items: [
+                {
+                  label: "Download Nitrox",
+                  href: "https://nitrox.rux.gg/download"
+                },
+                {
+                  label: "Changelog",
+                  href: "https://nitrox.rux.gg/pages/changelog"
+                },
+                {
+                  label: "Contribute",
+                  href: "https://nitrox.rux.gg/features/open-source" // TODO: Change to a documentation page at a later stage
+                }
+              ]
+            },
+            {
+              title: "Community",
+              items: [
+                {
+                  label: "Discord",
+                  href: "https://discord.gg/E8B4X9s"
+                },
+                {
+                  label: "Twitter",
+                  href: "https://twitter.com/modnitrox"
+                },
+                {
+                  label: "Reddit",
+                  href: "https://www.reddit.com/r/SubnauticaNitrox/"
+                }
+              ]
+            },
+            {
+              title: "More",
+              items: [
+                // {
+                //   label: 'Blog',
+                //   to: '/blog',
+                // },
+                {
+                  label: "GitHub",
+                  href: "https://github.com/SubnauticaNitrox/Nitrox"
+                }
+              ]
+            }
+          ],
+          copyright: `Copyright © ${new Date().getFullYear()} Nitrox Documentation. Built with Docusaurus.`
+        },
+        prism: {
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
+          additionalLanguages: ["csharp"]
+        },
+        algolia: {
+          // The application ID provided by Algolia
+          appId: "B6GIP4OC3R",
+          // Public API key: it is safe to commit it
+          apiKey: "2729684d91648b8b94629efedde0c070",
+          indexName: "subnauticanitrox",
+          insights: true,
+          debug: true
+        }
+      })
+  };
+}

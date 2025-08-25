@@ -7,13 +7,13 @@ title: Platform Architecture
 
 ## Application projects
 
-### {vars.projects.server.name}
+### @projects.subnautica_server.name@
 
-Server application that is started by the {vars.projects.launcher.name} project. It has serialization logic for Subnautica game entities which makes it easier to communicate with Nitrox clients. A future plan is to abstract away serialization to custom Nitrox objects instead of Subnautica game objects.
+Server application that is started by the @projects.launcher.name@ project. It has serialization logic for Subnautica game entities which makes it easier to communicate with Nitrox clients. A future plan is to abstract away serialization to custom Nitrox objects instead of Subnautica game objects.
 
-### {vars.projects.launcher.name}
+### @projects.launcher.name@
 
-WPF application for starting the server and/or Subnautica. The launcher will inject the Nitrox client code before starting Subnautica.
+[Avalonia](https://docs.avaloniaui.net/docs/welcome) application for starting the server and/or Subnautica. The launcher will inject the Nitrox client code by patching the Assembly-CSharp.dll of Subnautica, just before starting Subnautica.
 
 ---
 
@@ -29,15 +29,15 @@ Contains code common to the client and server (like NitroxModel) with serializat
 
 ### NitroxPatcher
 
-Library that is injected into Subnautica. Handles modifying internal data structures and bootstrapping the client. It depends on the Harmony library.
+Library that [is injected](https://github.com/SubnauticaNitrox/Nitrox/blob/master/Nitrox.Launcher/Models/Utils/NitroxEntryPatch.cs#L87-L111) into Subnautica. Handles modifying internal data structures and bootstrapping the client. It depends on the [HarmonyX](https://github.com/BepInEx/HarmonyX/wiki/Difference-between-Harmony-and-HarmonyX) library.
 
 ### NitroxServer
 
 Server code library that knows about the packets sent between client and server. It should not reference any code of Subnautica directly.
 
-### {vars.projects.client.name}
+### @projects.client.name@
 
-Injected as a reference to Subnautica via the NitroxPatcher project. Contains monobehaviours, tcp client, and packet handlers.
+Injected as a reference to Subnautica via the NitroxPatcher project. Contains monobehaviours, UDP client, and packet handlers.
 
 ### NitroxUnity
 
@@ -45,4 +45,4 @@ Asset library for UI/Game components introduced by Nitrox.
 
 ### Nitrox.Test
 
-Core unit testing project for all of the other projects.
+Core unit testing project for all the other projects.
