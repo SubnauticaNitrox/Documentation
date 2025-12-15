@@ -19,21 +19,17 @@ Server application that is started by the @projects.launcher.name@ project. It h
 
 ## Nitrox library projects
 
-### NitroxModel
+### @projects.model.name@
 
 Contains code common to the client and server without referencing Subnautica code directly. For example: Packet classes that are serialized between client and server.
 
-### NitroxModel-Subnautica
+### @projects.subnautica_model.name@
 
 Contains code common to the client and server (like NitroxModel) with serialization logic for Subnautica game entities which makes it easier to communicate with Nitrox clients. A future plan is to abstract away serialization to custom Nitrox objects instead of Subnautica game objects.
 
 ### NitroxPatcher
 
 Library that [is injected](https://github.com/SubnauticaNitrox/Nitrox/blob/master/Nitrox.Launcher/Models/Utils/NitroxEntryPatch.cs#L87-L111) into Subnautica. Handles modifying internal data structures and bootstrapping the client. It depends on the [HarmonyX](https://github.com/BepInEx/HarmonyX/wiki/Difference-between-Harmony-and-HarmonyX) library.
-
-### NitroxServer
-
-Server code library that knows about the packets sent between client and server. It should not reference any code of Subnautica directly.
 
 ### @projects.client.name@
 

@@ -6,9 +6,15 @@ export default {
     launcher: {
       name: "Nitrox.Launcher"
     },
+    model: {
+      name: "Nitrox.Model"
+    },
     subnautica_server: {
-      name: "NitroxServer-Subnautica"
-    }
+      name: "Nitrox.Server.Subnautica"
+    },
+    subnautica_model: {
+      name: "Nitrox.Model.Subnautica"
+    },
   },
   paths: {
     nitrox: {
