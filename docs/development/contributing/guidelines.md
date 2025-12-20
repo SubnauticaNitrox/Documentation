@@ -27,4 +27,4 @@ It is not desired to remove code just because "it doesn't work", or "causes exce
 
 ## Tagging co-authors
 
-If another helped you out to complete a work, it's good sportsmanship to tag them as co-author. [Find yours here](https://github.com/settings/emails) to share them with others. A list of co-author tags can be found [here.](/docs/contributors/coauthor-tags.md)
+If another helped you out to complete a work, it's good sportsmanship to tag them as co-author. [Find yours here](https://github.com/settings/emails) to share them with others. A list of co-author tags can be found [here.](./coauthor-tags.md)
