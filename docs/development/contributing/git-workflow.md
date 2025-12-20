@@ -1,31 +1,45 @@
 ---
-sidebar_position: 1
-sidebar_label: Development Workflow
-title: Nitrox development and workflow crash course
+sidebar_position: 2
+sidebar_label: Using Git
+title: Nitrox and Git workflow
 ---
-
-## Welcome contributors!
-
-This page will help you with using git in a (more) optimal way.
 
 ## Before you start
 
-- Fork the Nitrox repo on GitHub to your own account. Use this fork to pull/push changes.
-- If you're on GitHub then please share your account name with us so we know who's working on what.
+### Fork the Nitrox repo on GitHub to your own account
 
-## Improving git workflow
+1. Fork the repository to your own Github account (use the fork button top-right).
+2. Pull git repository locally:
+    ```
+    git clone https://github.com/<your-github-name>/Nitrox.git
+    ```
+3. If you want to add the main Nitrox repository as upstream (**recommended**):
+    ```shell
+    git remote add upstream https://github.com/SubnauticaNitrox/Nitrox.git
+    ```
+
+:::note
+Use this fork to push changes you make. Then [create PRs](#submitting-and-managing-pull-requests) on GitHub.
+:::
+
+If you're on GitHub & Discord with different usernames, then please share your account names with us so we know who's working on what.
+
+## Submitting and managing pull requests
+
+Merging your changes into the Nitrox repository is done through Pull Requests (PRs). You can create a PR from one of your own branches through the GitHub UI. Make sure you specify the target branch as `master` while making a PR.
+
+Once the PR is created it will be visible to review. If a reviewer requests changes, and you agree, you should make the changes on the same branch that you used for the PR. Commit and push this branch and it will update the PR with your changes.
+
+## Improving your git workflow
 
 In case you want to learn more about git and its workflows, https://git-scm.com/book is an excellent place to start
 
-### Tips
+### Our git tips
+<sub><sup>Skip this section is if you are familiar with git.</sup></sub>
 
-- Keep your local repo's master branch the same as the main repo of Nitrox. Create new local branches with git and commit your work on them. This will make it easier to try out the latest Nitrox code without having to delete, reset or stash your work.
+Keep your local repo's master branch the same as the main repo of Nitrox. Create new local branches with git and commit your work on them. This will make it easier to try out the latest Nitrox code without having to delete, reset or stash your work.
 
-### Run these commands once
-
-- `git remote add upstream https://github.com/SubnauticaNitrox/Nitrox.git` - Add Nitrox main repo as a remote so you can synchronize with changes from Nitrox
-
-### Run these optional commands once to speed up workflow
+#### Run these optional commands once to speed up workflow
 
 ```sh
 # Shortens `git push`-ing changes to remote branches by using the same branch name you're currently on by default.
@@ -36,15 +50,20 @@ git config --global alias.amend 'commit -a --amend --no-edit'
 git config --global alias.pr '!f() { git fetch upstream "pull/$1/head" && git checkout FETCH_HEAD; }; f'
 ```
 
-### Remembering these git commands will make it easier to manage your local forked repository of Nitrox
+#### Useful and common git commands
 
-- `git fetch --all` - Refresh git cached index with changes from remote repositories. This is required before merging/rebasing from a remote repo to get latest changes.
-- `git pull --rebase upstream master` - Make sure you are on **the local master branch** when pulling in changes from the main Nitrox repo.
-- `git merge upstream/master` - Merge changes from the Nitrox master branch to the currently active branch. This creates a new merge commit.
-- `git rebase upstream/master` - _Don't do this when someone else is working on **your specific** branch._ Applies changes from the Nitrox master branch to the current branch you're on and then reapplies the changes you've made on-top.
-- `git push <github-repo-url-ending-on-.git> HEAD:<name-of-pr-branch>` - Push a detached HEAD (anonymous branch) to the remote branch on someone's GitHub repo. Useful for adding your work on a to-be-merged PR that isn't your own.
+- `git fetch --all`<br/>
+  Refresh git cached with changes from remote repositories. Use `git fetch upstream` to only refresh changes from upstream Nitrox.
+- `git pull --rebase upstream master`<br/>
+  Make sure you are on **the local master branch** when pulling in changes from the main Nitrox repo.
+- `git merge upstream/master`<br/>
+  Merge changes from the Nitrox master branch to the currently active branch. This creates a new merge commit.
+- `git rebase upstream/master`<br/>
+_Don't do this when someone else is working on **your specific** branch._ Applies changes from the Nitrox master branch to the current branch you're on and then reapplies the changes you've made on-top.
+- `git push <github-repo-url-OR-remote-name> HEAD:<name-of-pr-branch>`<br/>
+Push a detached HEAD (anonymous branch) to the remote branch on someone's GitHub repo. Useful for adding your work on a to-be-merged PR that isn't your own.
 
-#### Git extras
+##### Git extras
 
 <details>
   <summary>Git alias to synchronize local working branch with remote (upstream/origin) default branch</summary>
@@ -106,12 +125,6 @@ fi
 ```
 
 </details>
-
-## Submitting and managing pull requests
-
-Merging your changes into the Nitrox repository is done through Pull Requests (PRs). You can create a PR from one of your own branches through the GitHub UI. Make sure you specify the target branch as `master` while making a PR.
-
-Once the PR is created it will be visible to review. If a reviewer requests changes, and you agree, you should make the changes on the same branch that you used for the PR. Commit and push this branch and it will update the PR with your changes.
 
 ---
 

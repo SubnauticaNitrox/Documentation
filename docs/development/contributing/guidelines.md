@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Guidelines
 ---
 
@@ -18,33 +18,13 @@ If code (especially patches that touch game internals) is/are not immediately cl
 - **<span class="avoid">AVOID</span> deep type inheritance 🪾** <br/>If you find yourself writing 2 or more parent classes within a project, inheritance is likely the wrong tool to use. Consider compositional-, functional- or procedural programming.
 - **<span class="avoid">AVOID</span> exact duplicates of code 🗒️** <br />If a piece of code is duplicated in 3 or more places, consider refactoring. But make sure that parts of a codebase with different goals aren't forced to change together.
 
-## Git workflow
-### Git help
-<sub><sup>Skip this section is if you are familiar with git.</sup></sub>
-Git is there to help you develop and share code efficiently, though it may seem daunting at first. In order to use it effectively, we recommend you to read some tutorials so that you are familiar with the concept of commits, the way these are linked together, branches, and remotes.
-
-When cloning a repository, git adds the clone url as a remote named `origin`. In this guide, we assume that's your fork. To keep your repository updated, add this official repo to your remotes:
-```bash
-# SSH:
-git remote add upstream git@github.com:SubnauticaNitrox/Nitrox.git
-# HTTPS:
-git remote add upstream https://github.com/SubnauticaNitrox/Nitrox.git
-```
-
-We recommend to keep your master branch up to date with the offical master branch. This makes it easier to base feature branches on.
-To go even further, you configure your master branch to pull from `SubnauticaNitrox`, and push to your own fork:
-```bash
-git config branch.master.remote upstream
-git config branch.master.pushRemote origin
-```
-
-### Filing a PR
+## Filing a PR
 When filing a PR, we obviously expect the code to compile, run with no errors, and merge without conflicts.
 To prevent issues, and ensure that your code is compatible with the most recent 'version',
 merge master into your branch, or rebase your branch on top of master. Even if git(hub) says your code can be merged without conflicts, there might be structural changes (renamings, moved files, refactors, etc.), causing the final result to fail compilation, or break at runtime.
 
 It is not desired to remove code just because "it doesn't work", or "causes exceptions in the log". If that's the case, try to fix it (recommended to file the changes in a separate PR), or notify the other Nitrox devs (by creating an issue on github, for example). All code is there for a reason - and someone else spent time creating it.
 
-### Tagging co-authors
+## Tagging co-authors
 
 If another helped you out to complete a work, it's good sportsmanship to tag them as co-author. [Find yours here](https://github.com/settings/emails) to share them with others. A list of co-author tags can be found [here.](/docs/contributors/coauthor-tags.md)

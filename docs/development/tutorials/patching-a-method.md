@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 sidebar_label: Patching a method
 title: Patching a method
 ---
@@ -9,7 +9,7 @@ title: Patching a method
  - Learn the different patching possibilities
 
 ### Prerequisites
- - [dnSpyEx](/docs/getting-started/debugging) or any .NET assembly editor
+ - [dnSpyEx](./debugging) or any .NET assembly editor
 
 # Getting Started
 

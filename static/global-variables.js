@@ -18,8 +18,8 @@ export default {
   },
   paths: {
     nitrox: {
-      logs: "%APPDATA%\\Nitrox\\Logs",
-      logs$linux: "~/.config/Nitrox/Logs"
+      logs: "%APPDATA%\\Nitrox\\logs",
+      logs$linux: "~/.config/Nitrox/logs"
     },
     subnautica: {
       player_log: "%UserProfile%\\AppData\\LocalLow\\Unknown Worlds\\Subnautica\\Player.log",
