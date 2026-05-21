@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
-sidebar_label: Using Docker
-title: Setup with Docker
+sidebar_label: Docker Server Setup
+title: Setup with Docker for Server
 ---
 
 :::note
@@ -24,7 +24,7 @@ SUBNAUTICA_PATH=/path/to/your/subnautica
 Start the server:
 
 ```bash
-docker compose up -d
+docker compose --profile server up -d
 ```
 
 The server will be available on **UDP port 11000**.
@@ -33,13 +33,13 @@ The server will be available on **UDP port 11000**.
 
 ```bash
 # View logs
-docker compose logs -f
+docker compose --profile server logs -f
 
 # Stop the server
-docker compose down
+docker compose --profile server down
 
 # Restart
-docker compose restart
+docker compose --profile server restart
 ```
 
 ## Data and saves
@@ -58,7 +58,7 @@ Running `docker compose down -v` will delete the `nitrox-data` volume and all wo
 ## Updating
 
 ```bash
-docker compose down
-docker compose build --no-cache
-docker compose up -d
+docker compose --profile server down
+docker compose --profile server build --no-cache
+docker compose --profile server up -d
 ```
